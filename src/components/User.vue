@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import _ from 'lodash'
+
 export default {
   name: 'User',
   data () {
@@ -43,7 +45,7 @@ export default {
     }
   },
   watch: {
-    async username () {
+    username: _.debounce(async function () {
       try {
         this.user = (await this.$http.get('users/' + this.username)).data
       } catch (err) {
@@ -58,6 +60,9 @@ export default {
         console.error('Failed to get repos of the user ' + this.username + ':', err)
       }
     },
+    // This is the number of milliseconds we wait for the
+    // user to stop typing.
+    500),
     repos () {
       this.repos.forEach(repo => {
         this.starsTotal += repo.stargazers_count
