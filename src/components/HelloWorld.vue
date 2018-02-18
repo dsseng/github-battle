@@ -1,8 +1,14 @@
 <template>
   <div class="hello">
-    <User username='sh7dm'></User>
+    <div>
+      <input v-model='username1'>
+      <User :username='username1'></User>
+    </div>
     <h1>VS</h1>
-    <User username='torvalds'></User>
+    <div>
+      <input v-model='username2'>
+      <User :username='username2'></User>
+    </div>
   </div>
 </template>
 
@@ -14,7 +20,8 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      username1: '',
+      username2: ''
     }
   }
 }
