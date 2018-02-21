@@ -24,8 +24,7 @@ export default {
   data () {
     return {
       user: {},
-      repos: [],
-      starsTotal: 0
+      repos: []
     }
   },
   props: [ 'username' ],
@@ -62,11 +61,15 @@ export default {
     },
     // This is the number of milliseconds we wait for the
     // user to stop typing.
-    500),
-    repos () {
+    500)
+  },
+  computed: {
+    starsTotal () {
+      let c = 0
       this.repos.forEach(repo => {
-        this.starsTotal += repo.stargazers_count
+        c += repo.stargazers_count
       })
+      return c
     }
   }
 }
