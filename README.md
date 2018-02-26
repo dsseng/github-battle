@@ -2,6 +2,8 @@
 
 > Github profiles, companies, repos and other comparsion
 
+[Now available at battle.ddns.net]: http://battle.ddns.net
+
 ## Build Setup
 
 ``` bash
